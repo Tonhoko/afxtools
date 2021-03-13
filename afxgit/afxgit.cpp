@@ -177,6 +177,15 @@ HAFX WINAPI ApiOpen(LPCWSTR szCommandLine, const lpAfxwInfo afxwInfo, lpApiOpenI
 		_item_max = 16;
 	}
 
+	// gitƒRƒ}ƒ“ƒh‚ÉPATH‚ð’Ê‚·
+	char *env_cmd, *path_now;
+	path_now = getenv("PATH");
+	env_cmd = (char*)malloc( strlen(path_now) + 64 );
+	strcpy( env_cmd, "PATH=" );
+	strcat( env_cmd, path_now );
+	strcat( env_cmd, ";C:\\Program Files\\Git\\cmd" );
+	putenv( env_cmd );
+
 	wcscpy(openInfo->szBaseDir, L"");
 	wcscpy(openInfo->szInitRelDir, L"");
 
