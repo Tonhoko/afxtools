@@ -291,6 +291,8 @@ HAFX WINAPI ApiOpen(LPCWSTR szCommandLine, const lpAfxwInfo afxwInfo, lpApiOpenI
 			pdata->branch_index = 0;
 			pdata->log_index = 0;
 		}
+
+		fclose(fp);
 	}
 
 	DeleteFile(path);
@@ -485,6 +487,7 @@ int  WINAPI ApiExecute(HAFX handle, LPCWSTR szItemPath)
 		wcstombs(cmd, wcmd, sizeof(cmd));
 
 		AfxExec(pAfxApp, cmd);
+		DeleteFile(path);
 	}
 
 	return 1;
