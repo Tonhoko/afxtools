@@ -198,7 +198,7 @@ HAFX WINAPI ApiOpen(LPCWSTR szCommandLine, const lpAfxwInfo afxwInfo, lpApiOpenI
 	} else if (wcsncmp(szCommandLine, L"log", 3) == 0) {
 	// LOG
 		pdata->mode = Mode_Log;
-		swprintf(wcmd, L"cmd /c git log --pretty=format:%s -50 \"%s\"", L"\"%at %h %s\"", &szCommandLine[4]);
+		swprintf(wcmd, L"cmd /c git log --pretty=format:%s --abbrev=7 -50 \"%s\"", L"\"%at %h %s\"", &szCommandLine[4]);
 		ret = run(wcmd, path);
 		//ret = run(L"cmd /c git log --pretty=format:\"%at %h %s\" -50", path);
 		wcsncpy(pdata->wszBaseDir, &szCommandLine[4], API_MAX_PATH_LENGTH);
