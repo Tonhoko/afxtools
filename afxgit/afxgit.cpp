@@ -116,7 +116,7 @@ DWORD run(wchar_t* cmdline, const wchar_t* redirectTo)
     memset(&StartupInfo, 0, sizeof(StartupInfo));
     StartupInfo.cb = sizeof(STARTUPINFO);
     StartupInfo.dwFlags = STARTF_USESHOWWINDOW;
-    StartupInfo.wShowWindow = SW_HIDE;
+    StartupInfo.wShowWindow = SW_SHOWMINNOACTIVE;	// 中断時の対話シェルを受け付けるため、表示状態とする
 
     Args[0] = 0;
     wcscat(Args, cmdline);  
