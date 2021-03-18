@@ -459,7 +459,8 @@ int  WINAPI ApiExecute(HAFX handle, LPCWSTR szItemPath)
 			fclose(fp);
 		}
 
-		AfxExec(pAfxApp, "&RELOAD");
+		// 仮想BSキーでBRANCHリストから抜ける
+		AfxExec(pAfxApp, "&SENDKEY 0008");
 		DeleteFile(path);
 	} else
 
