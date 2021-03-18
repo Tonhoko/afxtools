@@ -447,6 +447,7 @@ int  WINAPI ApiExecute(HAFX handle, LPCWSTR szItemPath)
 		swprintf(cmd, MAX_LINE_SIZE, L"cmd /c git checkout %s", &szItemPath[3]);
 		int ret = run(cmd, path);
 
+#if 0
 		FILE* fp = _wfopen(path, L"r");
 		if (fp != NULL) {
 			wchar_t temp[MAX_LINE_SIZE];
@@ -458,6 +459,7 @@ int  WINAPI ApiExecute(HAFX handle, LPCWSTR szItemPath)
 			}
 			fclose(fp);
 		}
+#endif
 
 		// 仮想BSキーでBRANCHリストから抜ける
 		AfxExec(pAfxApp, "&SENDKEY 0008");
